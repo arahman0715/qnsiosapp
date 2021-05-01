@@ -8,10 +8,14 @@ import { navigationRef } from './NavigationService';
 import Login from 'app/screens/Login';
 import Home from 'app/screens/Home';
 import ForgotPassword from 'app/screens/ForgotPassword';
+import QuranList from 'app/screens/QuranList';
 
 import ThemeController from '../components/ThemeController';
 import { StatusBar } from 'react-native';
 import { ILoginState } from 'app/models/reducers/login';
+import QuranDetails from '../screens/QuranDetails';
+import HadisDetails from '../screens/HadisDetails';
+import HadisList from '../screens/HadisList';
 
 const Stack = createStackNavigator();
 const AuthStack = createStackNavigator();
@@ -40,7 +44,7 @@ const AuthNavigator = () => {
   return (
     <AuthStack.Navigator>
       <Stack.Screen
-        name="Login"
+        name="QNSAPP"
         component={Login}
         options={{
           // When logging out, a pop animation feels intuitive
@@ -52,6 +56,46 @@ const AuthNavigator = () => {
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
+        options={{
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+          headerRight: () => <ThemeController />,
+        }}
+      />
+       <Stack.Screen
+        name="QuranList"
+        component={QuranList}
+        options={{
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+          headerRight: () => <ThemeController />,
+        }}
+      />
+       <Stack.Screen
+        name="QuranDetails"
+        component={QuranDetails}
+        options={{
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+          headerRight: () => <ThemeController />,
+        }}
+      />
+       <Stack.Screen
+        name="HadisList"
+        component={HadisList}
+        options={{
+          // When logging out, a pop animation feels intuitive
+          // You can remove this if you want the default 'push' animation
+          animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+          headerRight: () => <ThemeController />,
+        }}
+      />
+       <Stack.Screen
+        name="HadisDetails"
+        component={HadisDetails}
         options={{
           // When logging out, a pop animation feels intuitive
           // You can remove this if you want the default 'push' animation
@@ -104,3 +148,4 @@ const App: React.FC<IProps> = (props: IProps) => {
 };
 
 export default App;
+ 

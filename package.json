@@ -9,7 +9,8 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "update:pods": "npx pod-install ios",
-    "postinstall": "yarn run update:pods"
+    "postinstall": "yarn run update:pods",
+    "shake": "adb shell input keyevent 82"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",

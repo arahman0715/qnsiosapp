@@ -16,20 +16,27 @@ const Login: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
   const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
-  const onForgot = () => NavigationService.navigate('ForgotPassword');
+  const onNav = (which: any, params: any) => NavigationService.navigate(which, params);
   return (
     <View style={styles.container}>
       <View style={styles.container}>
-        <Text style={styles.login}>Login Status : {id}</Text>
-        <Button icon="login" mode="outlined" onPress={onLogin}>
+        {/* <Text style={styles.login}>Login Status : {id}</Text> */}
+        {/* <Button icon="login" mode="outlined" onPress={onLogin}>
           Login
+        </Button> */}
+        <Button
+          mode="text"
+          style={styles.forgot}
+          labelStyle={styles.labelStyle}
+          onPress={()=>onNav('QuranList', {})}>
+          QuranList
         </Button>
         <Button
           mode="text"
           style={styles.forgot}
           labelStyle={styles.labelStyle}
-          onPress={onForgot}>
-          Forgot Password
+          onPress={()=>onNav('HadisList', {})}>
+          HadisList
         </Button>
       </View>
     </View>
