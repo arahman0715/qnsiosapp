@@ -11,6 +11,12 @@ export function requestLogin(username: string, password: string) {
     password,
   };
 }
+export function requestQuranDetails(item: any) {
+  return {
+    type: types.QURANDETAILS_REQUEST,
+    item,
+  };
+}
 
 export function loginFailed() {
   return {
@@ -24,7 +30,12 @@ export function onLoginResponse(response: ILoginResponse) {
     response,
   };
 }
-
+export function onQuranDetailsResponse(response: ILoginResponse) {
+  return {
+    type: types.QURANDETAILS_RESPONSE,
+    response,
+  };
+}
 export function enableLoader() {
   return {
     type: types.LOGIN_ENABLE_LOADER,
