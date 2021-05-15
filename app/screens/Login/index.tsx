@@ -16,7 +16,7 @@ const Login: React.FC = () => {
   const id = useSelector((state: IState) => state.loginReducer.id);
   const dispatch = useDispatch();
   const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
-  const onNav = (which: any, params: any) => NavigationService.navigate(which, params);
+  const onNav = (which: any, params: any) => {dispatch(loginActions.requestLogin('test', '1234'));NavigationService.navigate(which, params);}
   return (
     <View style={styles.container}>
       <View style={styles.container}>
