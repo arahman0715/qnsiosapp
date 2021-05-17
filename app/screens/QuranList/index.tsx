@@ -11,6 +11,7 @@ import { ILoginState } from '../../models/reducers/login';
 import { Text, Dimensions } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { TrackPlayerEvents, useTrackPlayerEvents } from 'react-native-track-player';
 
 interface IState {
   loginReducer: ILoginState;
@@ -24,6 +25,7 @@ const QuranList: React.FC = () => {
     dispatch(loginActions.requestQuranDetails(item));
     NavigationService.navigate('QuranDetails', item);
   }
+  
   const _keyExtractor = (item: any) => item.id.toString();
 
   const _renderItem = ({ item: surah }: any) => {
