@@ -7,7 +7,7 @@
  * such as processing media buttons or analytics
  */
 
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, { TrackPlayerEvents } from 'react-native-track-player';
 let listeners = [];
 module.exports = async function() {
   listeners.map(listener => { listener.remove() });
