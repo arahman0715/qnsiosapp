@@ -9,6 +9,7 @@ import {
   ILoginRequestState,
   ILoginResponseState,
 } from 'app/models/actions/login';
+import { act } from 'react-test-renderer';
 const initialState: ILoginState = {
   isLoggedIn: false,
   id: 0,
@@ -24,6 +25,12 @@ export const loginReducer = createReducer(initialState, {
       password: action.password,
     };
   },
+  [types.QURANDETAILS_REQUEST](state: ILoginState, action: ILoginRequestState) {
+    return {
+      ...state,
+      id: action.id
+    };
+  },
   [types.LOGIN_LOADING_ENDED](state: ILoginState) {
     return { ...state };
   },
@@ -31,7 +38,18 @@ export const loginReducer = createReducer(initialState, {
     return {
       ...state,
       id: action.response.id,
-      isLoggedIn: true,
+      isLoggedIn: false,
+      quranList: action.response.chapters,
+      quranDetails: {}
+    };
+  },
+  [types.QURANDETAILS_RESPONSE](state: ILoginState, action: ILoginResponseState) {
+    const q = state.quranDetails;
+    console.log('In reducer details:',{action})
+    return {
+      ...state,
+
+      quranDetails: { ...q, [action.response.id]: action.response.response }
     };
   },
   [types.LOGIN_FAILED](state: ILoginState) {
