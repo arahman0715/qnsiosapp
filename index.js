@@ -10,3 +10,4 @@ import { enableScreens } from 'react-native-screens';
 enableScreens();
 
 AppRegistry.registerComponent(appName, () => App);
+TrackPlayer.registerEventHandler(require('./player-handler.js'))

@@ -12,6 +12,8 @@ target 'RNBoilerPlate' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
+
   target 'RNBoilerPlateTests' do
     inherit! :complete
     # Pods for testing
